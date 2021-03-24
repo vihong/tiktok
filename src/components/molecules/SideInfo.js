@@ -1,10 +1,10 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import colorPalette from '../../config/colorPalette';
 import ActionButton from './ActionButton';
 import ActionButtonIonicons from './ActionButtonIonicons';
 
-export default function SideInfo({ post }) {
+export default function SideInfo({ post, onLikePress, hasLiked }) {
 	return (
 		<View style={styles.container}>
 			<Image
@@ -13,7 +13,14 @@ export default function SideInfo({ post }) {
 					uri : post.user.imageUri
 				}}
 			/>
-			<ActionButton icon="heart" text="134.7k" style={styles.likeButton} />
+			<TouchableOpacity onPress={onLikePress}>
+				<ActionButton
+					icon="heart"
+					text={post.likes}
+					style={styles.likeButton}
+					color={hasLiked ? colorPalette.backgroundRed : 'white'}
+				/>
+			</TouchableOpacity>
 			<ActionButtonIonicons
 				icon="chatbubble-ellipses-sharp"
 				text={post.comments}

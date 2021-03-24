@@ -3,10 +3,16 @@ import { StyleSheet, Text, View } from 'react-native';
 import colorPalette from '../../config/colorPalette';
 import Icon from '../atoms/Icon';
 
-export default function ActionButton({ icon, text }) {
+export default function ActionButton({ icon, text, color }) {
 	return (
 		<View style={styles.container}>
-			<Icon name={icon} size={50} color="white" style={styles.icon} />
+			<Icon
+				name={icon}
+				size={50}
+				color="white"
+				style={styles.icon}
+				color={color ? color : 'white'}
+			/>
 			<Text style={styles.text}>{text}</Text>
 		</View>
 	);
