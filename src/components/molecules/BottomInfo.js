@@ -2,17 +2,15 @@ import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import ListItem from '../atoms/ListItem';
 
-export default function BottomInfo() {
+export default function BottomInfo({ post }) {
 	return (
 		<View style={styles.container}>
-			<ListItem text={'@tikTokDoc'} textStyle={styles.username} />
+			<ListItem text={`@${post.user.name}`} textStyle={styles.username} />
 			<ListItem text={'#dentiste #funny #neFaitesJamaisCa'} textStyle={styles.hashtag} />
-			<ListItem text={'Elle se brosse les dents avec un balai !!'} />
-			<ListItem
-				text={'Coldplay - Adventure of a lifetime'}
-				icon="music-note"
-				textStyle={styles.song}
-			/>
+			<ListItem text={post.description} />
+			{post.songName && (
+				<ListItem text={post.songName} icon="music-note" textStyle={styles.song} />
+			)}
 		</View>
 	);
 }
@@ -26,7 +24,8 @@ const styles = StyleSheet.create({
 		paddingLeft    : '4%'
 	},
 	username          : {
-		fontWeight : 'bold'
+		fontWeight : '500',
+		fontSize   : 16
 	},
 	hashtag           : {},
 	video_description : {},

@@ -9,8 +9,8 @@ export default function ListItem({ text, textStyle, icon }) {
 			{icon && <Icon name={icon} style={styles.icon} color={'white'} size={15} />}
 			<Text
 				style={[
-					textStyle,
-					styles.text
+					styles.text,
+					textStyle
 				]}
 				numberOfLines={1}
 			>

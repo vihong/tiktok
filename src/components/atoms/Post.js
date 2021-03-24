@@ -13,11 +13,16 @@ import { Video, AVPlaybackStatus } from 'expo-av';
 import BottomInfo from '../molecules/BottomInfo';
 import SideInfo from '../molecules/SideInfo';
 
-export default function Post() {
+export default function Post(props) {
 	const [
 		isVideoPaused,
 		setIsVideoPaused
 	] = useState(true);
+
+	const [
+		post,
+		setPost
+	] = useState(props.post);
 
 	const onPlayPause = () => {
 		console.log('isPaused');
@@ -29,10 +34,10 @@ export default function Post() {
 			<TouchableWithoutFeedback onPress={onPlayPause}>
 				<Video
 					source={{
-						uri : 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
+						uri : post.videoUri
 					}}
 					rate={1.0}
-					volume={0.0}
+					volume={1.0}
 					isMuted={false}
 					resizeMode="cover"
 					shouldPlay={isVideoPaused}
@@ -41,8 +46,8 @@ export default function Post() {
 					onError={(error) => console.error('error: ', error)}
 				/>
 			</TouchableWithoutFeedback>
-			<SideInfo />
-			<BottomInfo />
+			<SideInfo post={post} />
+			<BottomInfo post={post} />
 		</View>
 	);
 }
