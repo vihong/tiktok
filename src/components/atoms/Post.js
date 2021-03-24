@@ -24,9 +24,22 @@ export default function Post(props) {
 		setPost
 	] = useState(props.post);
 
+	const [
+		hasLiked,
+		setHasLiked
+	] = useState(false);
+
 	const onPlayPause = () => {
-		console.log('isPaused');
 		setIsVideoPaused(!isVideoPaused);
+	};
+
+	const handleLikePress = () => {
+		const likesToAdd = hasLiked ? -1 : 1;
+		setPost({
+			...post,
+			likes : post.likes + likesToAdd
+		});
+		setHasLiked(!hasLiked);
 	};
 
 	return (
@@ -37,7 +50,7 @@ export default function Post(props) {
 						uri : post.videoUri
 					}}
 					rate={1.0}
-					volume={1.0}
+					volume={0.5}
 					isMuted={false}
 					resizeMode="cover"
 					shouldPlay={isVideoPaused}
@@ -46,7 +59,7 @@ export default function Post(props) {
 					onError={(error) => console.error('error: ', error)}
 				/>
 			</TouchableWithoutFeedback>
-			<SideInfo post={post} />
+			<SideInfo post={post} onLikePress={handleLikePress} hasLiked={hasLiked} />
 			<BottomInfo post={post} />
 		</View>
 	);
