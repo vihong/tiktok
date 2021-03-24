@@ -1,12 +1,28 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+import {
+	Dimensions,
+	PlatformColor,
+	StatusBar,
+	StyleSheet,
+	Text,
+	TouchableWithoutFeedback,
+	View
+} from 'react-native';
+import Constants from 'expo-constants';
 import { Video, AVPlaybackStatus } from 'expo-av';
+import BottomInfo from '../molecules/BottomInfo';
+import SideInfo from '../molecules/SideInfo';
 
-export default function Post() {
+export default function Post(props) {
 	const [
 		isVideoPaused,
 		setIsVideoPaused
 	] = useState(true);
+
+	const [
+		post,
+		setPost
+	] = useState(props.post);
 
 	const onPlayPause = () => {
 		console.log('isPaused');
@@ -18,26 +34,29 @@ export default function Post() {
 			<TouchableWithoutFeedback onPress={onPlayPause}>
 				<Video
 					source={{
-						uri : 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
+						uri : post.videoUri
 					}}
 					rate={1.0}
 					volume={1.0}
 					isMuted={false}
 					resizeMode="cover"
 					shouldPlay={isVideoPaused}
-					isLooping={false}
+					isLooping={true}
 					style={styles.video}
 					onError={(error) => console.error('error: ', error)}
 				/>
 			</TouchableWithoutFeedback>
+			<SideInfo post={post} />
+			<BottomInfo post={post} />
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
 	container : {
-		width  : '100%',
-		height : Dimensions.get('window').height
+		width          : '100%',
+		height         : Dimensions.get('window').height - Constants.statusBarHeight,
+		justifyContent : 'flex-end'
 	},
 	video     : {
 		position : 'absolute',
