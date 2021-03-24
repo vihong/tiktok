@@ -4,13 +4,12 @@ import { StyleSheet } from 'react-native';
 import Text from '../atoms/Text';
 import Icon from '../atoms/Icon';
 import Screen from '../atoms/Screen';
+import Post from '../atoms/Post';
 
 export default function HomeScreen() {
 	return (
 		<Screen>
-			<Text>HomeScreen</Text>
-			<Text>Step One</Text>
-			<Icon name="step-forward" size={30} />
+			<Post />
 		</Screen>
 	);
 }
