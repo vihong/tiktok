@@ -7,9 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 function Screen({ children, style }) {
 	return (
 		<Fragment>
-			<StatusBar // translucent
-			// backgroundColor="#5E8D48"
-			barStyle="dark-content" />
+			<StatusBar barStyle="dark-content" />
 			<ScreenStyled style={style}>
 				<View style={style}>{children}</View>
 			</ScreenStyled>
