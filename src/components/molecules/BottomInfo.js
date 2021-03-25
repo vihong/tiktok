@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import ListItem from '../atoms/ListItem';
+import Constants from 'expo-constants';
 
 export default function BottomInfo({ post }) {
 	return (
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
 		// borderColor    : 'blue',
 		// borderWidth    : 2,
 		justifyContent : 'flex-end',
-		paddingBottom  : 30,
+		paddingBottom  : Constants.statusBarHeight,
 		paddingLeft    : '4%'
 	},
 	username          : {
