@@ -2,7 +2,7 @@ export default [
 	{
 		id          : 'p1',
 		videoUri    :
-			'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+			'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
 		user        : {
 			id       : 'u1',
 			name     : 'nickiMinaj',

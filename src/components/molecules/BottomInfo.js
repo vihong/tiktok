@@ -10,7 +10,7 @@ export default function BottomInfo({ post }) {
 			<ListItem text={'#dentiste #funny #neFaitesJamaisCa'} textStyle={styles.hashtag} />
 			<ListItem text={post.description} />
 			{post.songName && (
-				<ListItem text={post.songName} icon="music-note" textStyle={styles.song} />
+				<ListItem textTicker={post.songName} icon="music-note" textStyle={styles.song} />
 			)}
 		</View>
 	);
@@ -31,7 +31,9 @@ const styles = StyleSheet.create({
 	hashtag           : {},
 	video_description : {},
 	song              : {
-		fontWeight : '300',
-		width      : '50%'
+		fontWeight  : '300',
+		width       : '100%',
+		borderWidth : 1,
+		borderColor : 'red'
 	}
 });
