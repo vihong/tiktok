@@ -50,7 +50,7 @@ export default function Post(props) {
 						uri : post.videoUri
 					}}
 					rate={1.0}
-					volume={0.5}
+					volume={0.0}
 					isMuted={false}
 					resizeMode="cover"
 					shouldPlay={isVideoPaused}
