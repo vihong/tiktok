@@ -17,7 +17,7 @@ function Screen({ children, style }) {
 
 export default Screen;
 
-const ScreenStyled = styled.SafeAreaView`
+const ScreenStyled = styled.View`
 	padding-top: ${Constants.statusBarHeight}px;
 	flex: 1;
 `;
