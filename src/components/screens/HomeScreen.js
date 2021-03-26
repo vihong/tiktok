@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { Dimensions, FlatList } from 'react-native';
 import Constants from 'expo-constants';
-
-import { Dimensions, FlatList, StyleSheet } from 'react-native';
 import Screen from '../atoms/Screen';
 import Post from '../atoms/Post';
 import posts from '../../data/posts';
+import SplashScreen from './SplashScreen';
 
 export default function HomeScreen() {
 	return (
@@ -19,9 +19,6 @@ export default function HomeScreen() {
 				decelerationRate={'fast'}
 			/>
 		</Screen>
+		// <SplashScreen />
 	);
 }
-
-const styles = StyleSheet.create({
-	container : {}
-});

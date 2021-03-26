@@ -7,7 +7,7 @@ export default function BottomInfo({ post }) {
 	return (
 		<View style={styles.container}>
 			<ListItem text={`@${post.user.name}`} textStyle={styles.username} />
-			<ListItem text={'#dentiste #funny #neFaitesJamaisCa'} textStyle={styles.hashtag} />
+			<ListItem text={post.hashtags} textStyle={styles.hashtag} />
 			<ListItem text={post.description} />
 			{post.songName && (
 				<ListItem textTicker={post.songName} icon="music-note" textStyle={styles.song} />
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 		// borderWidth    : 2,
 		justifyContent : 'flex-end',
 		paddingBottom  : Constants.statusBarHeight,
-		paddingLeft    : '4%'
+		paddingLeft    : '6%'
 	},
 	username          : {
 		fontWeight : '500',
